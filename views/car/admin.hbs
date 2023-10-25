@@ -1,0 +1,131 @@
+<div class="container col-md-8 text-center" style="margin-bottom:100px">
+    <table>
+        <tr>
+            <th colspan="6" class="h1 text-uppercase text-success">
+                Car List
+            </th>
+            <th>
+                <a class="btn btn-primary" href="/car/add">Add</a>
+            </th>
+            <th colspan="2">
+                <form action="/car/search" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="search" placeholder="Search" name="name">
+                    </div>
+                </form>
+            </th>
+            <th colspan="2">
+                <select class="form-control" name="sort" id="" onchange="window.location.href=this.value">
+                    <option value="">Sort by</option>
+                    <option value="/car/admin/priceasc">Sort by price</option>
+                    <option value="/car/admin/quantityasc">Sort by quantity</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Material</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Menu</th>
+        </tr>
+        {{#each car }}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ material }}</td>
+            <td class="price-cell">{{ price }}</td>
+            <td>{{ quantity }}</td>
+            <td>{{ description }}</td>
+            <td>
+                <a href="/car/detail/{{_id}}"> <img src="{{image}}" width="150" height="150"></a>
+            </td>
+            <td>
+                <a class="btn btn-warning" href="/car/edit/{{_id}}">Edit</a>
+                <a class="btn btn-danger" href="/car/delete/{{_id}}"
+                onclick="return confirm('Are you sure to delete this car?');">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<style>
+.price-cell::before {
+    content: "$ "; /* Thêm ký hiệu tiền tệ "$" và một khoảng trắng */
+    color: green; /* Màu sắc của ký hiệu tiền tệ */
+    font-weight: bold; /* Độ đậm của ký hiệu tiền tệ */
+}
+
+<style>
+    .container table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .container table, .container th, .container td {
+        border: 1px solid #ddd; /* Đường viền xám cho bảng */
+    }
+
+    .container th, .container td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container th {
+        background-color: #f2f2f2; /* Màu nền xám cho tiêu đề cột */
+    }
+
+    .container th, .container td a {
+        text-decoration: none; /* Loại bỏ gạch chân trên liên kết */
+        color: #007bff; /* Màu cho liên kết */
+    }
+
+    .container th a.btn-primary {
+        background-color: #007bff; /* Màu nền xanh cho nút "Add" */
+        color: #fff;
+    }
+
+    .container th a.btn-primary:hover {
+        background-color: #0056b3; /* Màu nền xanh tối cho nút "Add" khi di chuột vào */
+    }
+
+    .container th select, .container th input[type="search"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .price-cell::before {
+        content: "$ "; /* Thêm ký hiệu tiền tệ "$" và một khoảng trắng */
+        color: green; /* Màu sắc của ký hiệu tiền tệ */
+        font-weight: bold; /* Độ đậm của ký hiệu tiền tệ */
+    }
+        /* CSS cho nút "Add" */
+    .container th a.btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px 10px;
+        margin-right: 10px; /* Tạo khoảng cách với nút "Delete" */
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .container th a.btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    /* CSS cho nút "Delete" */
+    .container th a.btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .container th a.btn-danger:hover {
+        background-color: #c82333;
+    }
+</style>
