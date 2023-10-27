@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var carRouter = require('./routes/car');
 var homeRouter = require('./routes/home');
 var superRouter = require('./routes/super');
+var flyRouter = require('./routes/fly');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use('/users', usersRouter);
 app.use('/car', carRouter);
 app.use('/car', homeRouter);
 app.use('/super', superRouter);
+app.use('/fly', flyRouter);
 //khai bao va cau hinh thu vien mongoose 
 var mongoose = require('mongoose');
 //go ten database vao cuoi link

@@ -1,0 +1,22 @@
+<form action="/fly/edit/{{fly._id}}" method="post" class="container col-md-8 card">
+    <h1 class="text-danger text-center">Edit Flycam</h1>
+    <div class="form-group mt-3">
+        <label for="name" class="text-primary">Name</label>
+        <input class="form-control" type="text" name="name" id="name" required minlength="3" maxlength="30" value="{{fly.name}}">
+    </div>
+    <div class="form-group mt-3">
+        <label for="price" class="text-primary">Price</label>
+        <input class="form-control" type="number" name="price" id="price" required min="0" value="{{fly.price}}">
+    </div>
+        <div class="form-group mt-3">
+        <label for="ropeller" class="text-primary">Ropeller</label>
+        <input class="form-control" type="number" name="ropeller" id="ropeller" required min="0" value="{{fly.ropeller}}">
+    </div>
+    <div class="form-group mt-3">
+        <label for="image" class="text-primary">Image URL</label>
+        <input class="form-control" type="url" name="image" id="image" required value="{{fly.image}}">
+    </div>
+    <div class="form-group mt-3 mb-4 text-center">
+        <input class="btn btn-primary" type="submit" value="Edit">
+    </div>
+</form>

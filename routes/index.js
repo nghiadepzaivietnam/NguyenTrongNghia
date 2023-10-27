@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var CarModel = require('../models/CarModel');
 var SuperModel = require('../models/SuperModel');
+var FlyModel = require('../models/FlyModel');
 
 router.get('/', async (req,res) => {
   var car = await CarModel.find();
