@@ -70,6 +70,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(process.env.PORT||3001);
-
+const port = 3004; // Thay đổi thành cổng khác, ví dụ 3004
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 module.exports = app;
